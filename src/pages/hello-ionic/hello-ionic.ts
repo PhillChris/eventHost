@@ -22,7 +22,7 @@ export class HelloIonicPage {
     for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
-        type: this.types[Math.floor(Math.random() * this.types.length)],
+        note: this.types[Math.floor(Math.random() * this.types.length)],
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
