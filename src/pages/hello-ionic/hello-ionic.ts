@@ -11,7 +11,7 @@ import { ItemDetailsPage } from '../item-details/item-details';
 export class HelloIonicPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  types: Array<{type: string}>;
+  types: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
