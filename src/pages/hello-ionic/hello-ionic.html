@@ -3,18 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button id='title' clear>hostMe</button>
-    <button ion-button id='education'>Education</button>
-    <button ion-button id='leisure'>Leisure</button>
-    <button ion-button id='professional'>Professional</button>
-    <button ion-button id='promoted'>Promoted</button>
+    <button ion-button id='title' clear (click)="reset($event)">hostMe</button>
+    <button ion-button id='education' (click)="categoryTapped($event, 'Education')">Education</button>
+    <button ion-button id='leisure' (click)="categoryTapped($event, 'Leisure')">Leisure</button>
+    <button ion-button id='professional' (click)="categoryTapped($event, 'Professional')">Professional</button>
+    <button ion-button id='promoted' (click)="categoryTapped($event, 'Promoted')">Promoted</button>
+    <button ion-button id='createEvent'>Create Event</button>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
+    <button ion-item *ngFor="let item of displayItems" (click)="itemTapped($event, item)">
+      <ion-icon name="{{item.icon}}" item-left class="icon"></ion-icon>
       {{item.title}}
       <div class="item-type" item-right>
       </div>

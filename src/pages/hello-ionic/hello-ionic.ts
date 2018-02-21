@@ -11,6 +11,7 @@ import { ItemDetailsPage } from '../item-details/item-details';
 export class HelloIonicPage {
   icons: string[];
   items: Array<{title: string, category: string, icon: string, description: string}>;
+  displayItems: Array<{title: string, category: string, icon: string, description: string}>;
   categories: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -20,11 +21,18 @@ export class HelloIonicPage {
     let descriptions = ['A fun time.', 'Please to explain derivatives', 'Will pay for job', 'S M O A K  P A R A D I G M S', 'Who actually does this?']
 
     this.items = [];
+    this.displayItems = [];
     this.items.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]})
+    this.displayItems.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]})
     this.items.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]})
+    this.displayItems.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]})
     this.items.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]})
+    this.displayItems.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]})
     this.items.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]})
+    this.displayItems.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]})
     this.items.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]})
+    this.displayItems.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]})
+
     /*for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
@@ -38,6 +46,21 @@ export class HelloIonicPage {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
     });
+  }
+
+  categoryTapped(event, cat) {
+    this.displayItems = []
+    for (let item of this.items) {
+      console.log(item.category)
+      console.log(cat)
+      if (item.category === cat) {
+         this.displayItems.push(item)
+       }
+    }
+  }
+
+  reset(event) {
+    this.displayItems = this.items
   }
 
 }
