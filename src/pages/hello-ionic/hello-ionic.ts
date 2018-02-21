@@ -51,8 +51,6 @@ export class HelloIonicPage {
   categoryTapped(event, cat) {
     this.displayItems = []
     for (let item of this.items) {
-      console.log(item.category)
-      console.log(cat)
       if (item.category === cat) {
          this.displayItems.push(item)
        }
@@ -62,5 +60,4 @@ export class HelloIonicPage {
   reset(event) {
     this.displayItems = this.items
   }
-
 }
