@@ -18,6 +18,8 @@ export class HelloIonicPage {
     this.icons = ['ios-school-outline', 'ios-briefcase-outline',
     'ios-star-outline', 'ios-american-football-outline'];
 
+    // Generates the sample event data displayed on the website
+
     let descriptions = ['A fun time.', 'Please to explain derivatives', 'Will pay for job', 'S M O A K  P A R A D I G M S', 'Who actually does this?']
 
     this.items = [];
