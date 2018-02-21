@@ -14,11 +14,12 @@ export class HelloIonicPage {
   types: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.icons = ['ios-school-outline', 'ios-briefcase-outline',
+    'ios-star-outline', 'ios-american-football-outline'];
     this.types = ['Games', 'Study Group', 'Types'];
 
     this.items = [];
+    /*this.items.push({title: 'Study Session', , icon: })*/
     for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
