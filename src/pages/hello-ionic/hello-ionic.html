@@ -10,8 +10,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let item of displayItems" (click)="itemTapped($event, item)">
+    <button ion-item *ngFor="let item of searchedItems" (click)="itemTapped($event, item)">
       <ion-icon name="{{item.icon}}" item-left class="icon"></ion-icon>
       {{item.title}}
       <div class="item-type" item-right>

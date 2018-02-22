@@ -11,7 +11,8 @@ import { ItemDetailsPage } from '../item-details/item-details';
 export class HelloIonicPage {
   icons: string[];
   items: Array<{title: string, category: string, icon: string, description: string}>;
-  displayItems: Array<{title: string, category: string, icon: string, description: string}>;
+  categoryItems: Array<{title: string, category: string, icon: string, description: string}>;
+  searchedItems: Array<{title: string, category: string, icon: string, description: string}>;
   categories: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -23,18 +24,14 @@ export class HelloIonicPage {
     let descriptions = ['A fun time.', 'Please to explain derivatives', 'Will pay for job', 'S M O A K  P A R A D I G M S', 'Who actually does this?']
 
     this.items = [];
-    this.displayItems = [];
-    this.items.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]})
-    this.displayItems.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]})
-    this.items.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]})
-    this.displayItems.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]})
-    this.items.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]})
-    this.displayItems.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]})
-    this.items.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]})
-    this.displayItems.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]})
-    this.items.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]})
-    this.displayItems.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]})
+    this.items.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]});
+    this.items.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]});
+    this.items.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]});
+    this.items.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]});
+    this.items.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]});
 
+    this.categoryItems = this.items.slice();
+    this.searchedItems = this.items.slice();
     /*for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
@@ -44,6 +41,22 @@ export class HelloIonicPage {
     }*/
   }
 
+  getItems(searchbar: any) {
+    var query = searchbar.target.value.toLowerCase();
+
+    if (!query) {
+      this.searchedItems = this.categoryItems
+      return;
+    }
+
+    this.searchedItems = []
+    for(let i = 0; i < this.categoryItems.length; i++) {
+      if (this.categoryItems[i].title.toLowerCase().includes(query)) {
+        this.searchedItems.push(this.categoryItems[i]);
+      }
+    }3
+  }
+
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
@@ -51,15 +64,17 @@ export class HelloIonicPage {
   }
 
   categoryTapped(event, cat) {
-    this.displayItems = []
+    this.categoryItems = []
     for (let item of this.items) {
       if (item.category === cat) {
-         this.displayItems.push(item)
+         this.categoryItems.push(item)
        }
     }
+    this.searchedItems = this.categoryItems.slice();
   }
 
   reset(event) {
-    this.displayItems = this.items
+    this.categoryItems = this.items.slice();
+    this.searchedItems = this.items.slice();
   }
 }
