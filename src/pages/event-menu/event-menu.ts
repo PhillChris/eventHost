@@ -9,7 +9,6 @@ import { ItemDetailsPage } from '../item-details/item-details';
   templateUrl: 'event-menu.html'
 })
 export class EventMenu {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-      
+  constructor() {
   }
 }
