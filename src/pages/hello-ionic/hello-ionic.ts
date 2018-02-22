@@ -4,6 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 
+import { EventMenu } from '../event-menu/event-menu';
+
 @Component({
   selector: 'page-hello-ionic',
   templateUrl: 'hello-ionic.html'
@@ -54,7 +56,11 @@ export class HelloIonicPage {
       if (this.categoryItems[i].title.toLowerCase().includes(query)) {
         this.searchedItems.push(this.categoryItems[i]);
       }
-    }3
+    }
+  }
+
+  createEvent(event) {
+    this.navCtrl.push(EventMenu)
   }
 
   itemTapped(event, item) {
