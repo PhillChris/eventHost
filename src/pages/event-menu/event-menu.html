@@ -37,5 +37,5 @@
     <ion-checkbox color="dark" checked="false"></ion-checkbox>
   </ion-item>
 
-  <button ion-button class='submit'>Submit</button>
+  <button ion-button class='submit' (click)='this.makeEvent($event, newEvent.name, newEvent.description)'>Submit</button>
 </ion-content>

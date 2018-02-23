@@ -12,10 +12,11 @@ import { EventMenu } from '../event-menu/event-menu';
 })
 export class HelloIonicPage {
   icons: string[];
-  items: Array<{title: string, category: string, icon: string, description: string}>;
-  categoryItems: Array<{title: string, category: string, icon: string, description: string}>;
-  searchedItems: Array<{title: string, category: string, icon: string, description: string}>;
+  items: Array<{title: string, category: string, categoryColor: string, icon: string, description: string}>;
+  categoryItems: Array<{title: string, category: string, categoryColor: string, icon: string, description: string}>;
+  searchedItems: Array<{title: string, category: string, categoryColor: string, icon: string, description: string}>;
   categories: string[];
+  categoryColors: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.icons = ['ios-school-outline', 'ios-briefcase-outline',
@@ -24,16 +25,19 @@ export class HelloIonicPage {
     // Generates the sample event data displayed on the website
 
     let descriptions = ['A fun time.', 'Please to explain derivatives', 'Will pay for job', 'S M O A K  P A R A D I G M S', 'Who actually does this?']
+    this.categoryColors = ['#78AB46', '#488aff', '#A9A9A9', '#FFD700']
+    this.categories = ['Education', 'Leisure', 'Professional', 'Promoted']
 
     this.items = [];
-    this.items.push({title: 'CLUBHOUSE SOCIAL', category: 'Promoted', icon: this.icons[2], description: descriptions[0]});
-    this.items.push({title: 'Calculus Study Session', category: 'Education', icon: this.icons[0], description: descriptions[1]});
-    this.items.push({title: 'Networking Session', category: 'Professional', icon: this.icons[1], description: descriptions[2]});
-    this.items.push({title: 'LIT420 Office Hours', category: 'Education', icon: this.icons[0], description: descriptions[3]});
-    this.items.push({title: 'Winter Touch Football', category: 'Leisure', icon: this.icons[3], description: descriptions[4]});
+    this.items.push({title: 'CLUBHOUSE SOCIAL', category: this.categories[3], icon: this.icons[2], categoryColor: this.categoryColors[3], description: descriptions[0]});
+    this.items.push({title: 'Calculus Study Session', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[1]});
+    this.items.push({title: 'Networking Session', category: this.categories[2], icon: this.icons[1], categoryColor: this.categoryColors[2], description: descriptions[2]});
+    this.items.push({title: 'LIT420 Office Hours', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[3]});
+    this.items.push({title: 'Winter Touch Football', category: this.categories[1], icon: this.icons[3], categoryColor: this.categoryColors[1], description: descriptions[4]});
 
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
+
     /*for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
@@ -41,7 +45,7 @@ export class HelloIonicPage {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }*/
-    console.log('Complete!')
+    console.log(this.items)
   }
 
   getItems(searchbar: any) {
@@ -70,10 +74,10 @@ export class HelloIonicPage {
     });
   }
 
-  categoryTapped(event, name, des) {
+  categoryTapped(event, category) {
     this.categoryItems = []
     for (let item of this.items) {
-      if (item.category === cat) {
+      if (item.category === category) {
          this.categoryItems.push(item)
        }
     }

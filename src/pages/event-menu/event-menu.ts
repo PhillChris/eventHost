@@ -17,4 +17,8 @@ export class EventMenu {
     name: undefined,
     description: undefined
   }
+
+  makeEvent(event, name, description) {
+    console.log(hello-ionic.HelloIonicPage.items)
+  }
 }
