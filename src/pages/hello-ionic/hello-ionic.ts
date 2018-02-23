@@ -41,6 +41,7 @@ export class HelloIonicPage {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }*/
+    console.log('Complete!')
   }
 
   getItems(searchbar: any) {
@@ -59,7 +60,7 @@ export class HelloIonicPage {
     }
   }
 
-  createEvent(event) {
+  createEvent(eventm ) {
     this.navCtrl.push(EventMenu)
   }
 
@@ -69,7 +70,7 @@ export class HelloIonicPage {
     });
   }
 
-  categoryTapped(event, cat) {
+  categoryTapped(event, name, des) {
     this.categoryItems = []
     for (let item of this.items) {
       if (item.category === cat) {
@@ -77,6 +78,10 @@ export class HelloIonicPage {
        }
     }
     this.searchedItems = this.categoryItems.slice();
+  }
+
+  newEvent(event, name, description) {
+    this.navCtrl.pop()
   }
 
   reset(event) {

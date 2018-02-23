@@ -10,12 +10,12 @@
 <ion-content>
   <ion-item>
     <ion-label fixed>Event Name</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" value="" [(ngModel)]='newEvent.name'></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label fixed>Description</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" value="" [(ngModel)]='newEvent.description'></ion-input>
   </ion-item>
 
   <p text-center>
