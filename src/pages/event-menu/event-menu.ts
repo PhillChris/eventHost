@@ -19,6 +19,10 @@ export class EventMenu {
   }
 
   makeEvent(event, name, description) {
-    console.log(hello-ionic.HelloIonicPage.items)
+    var homePage = new HelloIonicPage(NavController, NavParams)
+    homePage.items.push({title: name, category: 'Education', categoryColor: '#78AB46', icon: 'ios-school-outline', description: description})
+    homePage.categoryItems.push({title: name, category: 'Education', categoryColor: '#78AB46', icon: 'ios-school-outline', description: description})
+    homePage.searchedItems.push({title: name, category: 'Education', categoryColor: '#78AB46', icon: 'ios-school-outline', description: description})
+    this.navCtrl.pop()
   }
 }

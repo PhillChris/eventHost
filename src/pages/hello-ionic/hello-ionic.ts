@@ -64,7 +64,7 @@ export class HelloIonicPage {
     }
   }
 
-  createEvent(eventm ) {
+  createEvent(event) {
     this.navCtrl.push(EventMenu)
   }
 
@@ -82,10 +82,6 @@ export class HelloIonicPage {
        }
     }
     this.searchedItems = this.categoryItems.slice();
-  }
-
-  newEvent(event, name, description) {
-    this.navCtrl.pop()
   }
 
   reset(event) {
