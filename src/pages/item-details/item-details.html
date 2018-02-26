@@ -4,14 +4,22 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Item Details</ion-title>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-  </h3>
-  <h4 text-left *ngIf="selectedItem">
-    {{selectedItem.description}}
-  </h4>
+  <ion-grid>
+    <ion-row>
+      <h3 text-center *ngIf="selectedItem">
+        {{selectedItem.title}}
+      </h3>
+    </ion-row>
+    <ion-row>
+      <h4 text-center *ngIf="selectedItem">
+        {{selectedItem.description}}
+      </h4>
+    </ion-row>
+    </ion-grid>
+    <div #googleMap id="googleMap"></div>
 </ion-content>
