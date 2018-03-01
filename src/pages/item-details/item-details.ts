@@ -1,3 +1,5 @@
+declare var google
+
 import { Component, ViewChild } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
