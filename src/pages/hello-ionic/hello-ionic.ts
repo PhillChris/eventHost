@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 
@@ -18,7 +18,7 @@ export class HelloIonicPage {
   categories: string[];
   categoryColors: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events ) {
     this.icons = ['ios-school-outline', 'ios-briefcase-outline',
     'ios-star-outline', 'ios-american-football-outline'];
 
@@ -38,6 +38,11 @@ export class HelloIonicPage {
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
 
+    this.events.subscribe('newEvent', eventInfo => {
+      this.items.push(eventInfo)
+      this.reset()
+    })
+
     /*for(let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Event ' + i,
@@ -46,6 +51,10 @@ export class HelloIonicPage {
       });
     }*/
     console.log(this.items)
+  }
+
+  writeToFile(fileNavigator, path, filename, text) {
+    return fileNavigator.writeFile(fileNavigator.dataDirectory, filename, text)
   }
 
   getItems(searchbar: any) {

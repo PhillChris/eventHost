@@ -9,6 +9,7 @@ import { EventMenu } from '../pages/event-menu/event-menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { File } from "@ionic-native/file"
 
 @NgModule({
   declarations: [
