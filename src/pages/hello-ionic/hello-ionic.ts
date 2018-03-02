@@ -43,8 +43,6 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.events.subscribe('newEvent', eventInfo => {
     this.items.push(eventInfo)
     this.reset()
-
-    console.log(this.items)
     })
   }
 
