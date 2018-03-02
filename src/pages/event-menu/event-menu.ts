@@ -11,13 +11,7 @@ import { ItemDetailsPage } from '../item-details/item-details';
   templateUrl: 'event-menu.html'
 })
 export class EventMenu {
-    icons: Any;
-
   constructor(public navCtrl: NavController, public events: Events) {
-    this.icons = {'Education': 'ios-school-outline',
-     'Professional': 'ios-briefcase-outline',
-     'Leisure': 'ios-american-football-outline',
-     'Promoted': 'ios-star-outline'};
   }
   newEvent = {
     name: undefined,
@@ -26,8 +20,7 @@ export class EventMenu {
   }
 
   makeEvent(event, name, category, description) {
-    this.events.publish('newEvent', {title: name, category: icons[category],
-       icon: category, categoryColor: '#78AB46', description: description});
+    this.events.publish('newEvent', {title: name, category: category, icon: category, categoryColor: '#78AB46', description: description})
     this.navCtrl.pop()
   }
 }
