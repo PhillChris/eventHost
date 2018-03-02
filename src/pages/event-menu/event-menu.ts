@@ -20,7 +20,7 @@ export class EventMenu {
   }
 
   makeEvent(event, name, category, description) {
-    this.events.publish('newEvent', {title: name, category: category, icon: category, categoryColor: '#78AB46', description: description})
+    this.events.publish('newEvent', {title: name, category: category, icon: 'ios-star-outline', categoryColor: '#78AB46', description: description})
     this.navCtrl.pop()
   }
 }
