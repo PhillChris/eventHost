@@ -23,19 +23,13 @@
   </p>
 
   <ion-item>
-    <ion-label>Educational</ion-label>
-    <ion-checkbox color="dark" checked="false"></ion-checkbox>
-  </ion-item>
+  <ion-label>Event Category</ion-label>
+  <ion-select [(ngModel)]="newEvent.category" interface="popover">
+    <ion-option value="Education">Educational</ion-option>
+    <ion-option value="Leisure">Leisure</ion-option>
+    <ion-option value="Professional">Professional</ion-option>
+  </ion-select>
+</ion-item>
 
-  <ion-item>
-    <ion-label>Professional</ion-label>
-    <ion-checkbox color="dark" checked="false"></ion-checkbox>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Leisure</ion-label>
-    <ion-checkbox color="dark" checked="false"></ion-checkbox>
-  </ion-item>
-
-  <button ion-button class='submit' (click)='this.makeEvent($event, newEvent.name, newEvent.description)'>Submit</button>
+  <button ion-button class='submit' (click)='this.makeEvent($event, newEvent.name, newEvent.category, newEvent.description)'>Submit</button>
 </ion-content>

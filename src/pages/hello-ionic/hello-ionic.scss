@@ -2,6 +2,10 @@ page-hello-ionic {
 
 }
 
+body {
+  margin: auto;
+}
+
 #title {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
@@ -41,4 +45,9 @@ page-hello-ionic {
 
 .PromotedIcon {
   color: '#FFD700';
+}
+
+.scroll-bar-indicator
+{
+	display: none;
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 
@@ -18,7 +18,7 @@ export class HelloIonicPage {
   categories: string[];
   categoryColors: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events ) {
     this.icons = ['ios-school-outline', 'ios-briefcase-outline',
     'ios-star-outline', 'ios-american-football-outline'];
 
@@ -38,14 +38,12 @@ export class HelloIonicPage {
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
 
-    /*for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Event ' + i,
-        note: this.types[Math.floor(Math.random() * this.types.length)],
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }*/
+    this.events.subscribe('newEvent', eventInfo => {
+    this.items.push(eventInfo)
+    this.reset()
+
     console.log(this.items)
+    })
   }
 
   getItems(searchbar: any) {
@@ -84,7 +82,8 @@ export class HelloIonicPage {
     this.searchedItems = this.categoryItems.slice();
   }
 
-  reset(event) {
+
+  reset() {
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
   }

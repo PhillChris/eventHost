@@ -21,5 +21,4 @@ export class SecondaryPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SecondaryPage');
   }
-
 }

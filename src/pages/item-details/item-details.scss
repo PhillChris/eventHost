@@ -2,7 +2,16 @@ page-item-details {
 
 }
 
+body {
+  margin: auto;
+}
+
 #googleMap {
   height: 50%;
   width: 50%;
+}
+
+.scroll-bar-indicator
+{
+	display: none;
 }
