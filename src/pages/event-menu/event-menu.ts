@@ -23,8 +23,6 @@ export class EventMenu {
     this.latLng = new google.maps.LatLng(43.612562, -79.753870);
   }
 
-  updateLatLng(results, status)
-
   makeEvent(event, name, date, time, category, description, address) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
     var icon = undefined;
