@@ -19,8 +19,8 @@ export class HelloIonicPage {
   categoryColors: string[];
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events ) {
-    this.icons = ['ios-school-outline', 'ios-briefcase-outline',
-    'ios-star-outline', 'ios-american-football-outline'];
+    this.icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline',
+    'ios-star-outline'];
 
     // Generates the sample event data displayed on the website
 
@@ -29,11 +29,11 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.categories = ['Education', 'Leisure', 'Professional', 'Promoted']
 
     this.items = [];
-    this.items.push({title: 'CLUBHOUSE SOCIAL', category: this.categories[3], icon: this.icons[2], categoryColor: this.categoryColors[3], description: descriptions[0]});
+    this.items.push({title: 'CLUBHOUSE SOCIAL', category: this.categories[3], icon: this.icons[3], categoryColor: this.categoryColors[3], description: descriptions[0]});
     this.items.push({title: 'Calculus Study Session', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[1]});
-    this.items.push({title: 'Networking Session', category: this.categories[2], icon: this.icons[1], categoryColor: this.categoryColors[2], description: descriptions[2]});
+    this.items.push({title: 'Networking Session', category: this.categories[2], icon: this.icons[2], categoryColor: this.categoryColors[2], description: descriptions[2]});
     this.items.push({title: 'LIT420 Office Hours', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[3]});
-    this.items.push({title: 'Winter Touch Football', category: this.categories[1], icon: this.icons[3], categoryColor: this.categoryColors[1], description: descriptions[4]});
+    this.items.push({title: 'Winter Touch Football', category: this.categories[1], icon: this.icons[1], categoryColor: this.categoryColors[1], description: descriptions[4]});
 
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
