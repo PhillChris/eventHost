@@ -29,11 +29,17 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.categories = ['Education', 'Leisure', 'Professional', 'Promoted']
 
     this.items = [];
-    this.items.push({title: 'CLUBHOUSE SOCIAL', category: this.categories[3], icon: this.icons[3], categoryColor: this.categoryColors[3], description: descriptions[0]});
-    this.items.push({title: 'Calculus Study Session', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[1]});
-    this.items.push({title: 'Networking Session', category: this.categories[2], icon: this.icons[2], categoryColor: this.categoryColors[2], description: descriptions[2]});
-    this.items.push({title: 'LIT420 Office Hours', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: descriptions[3]});
-    this.items.push({title: 'Winter Touch Football', category: this.categories[1], icon: this.icons[1], categoryColor: this.categoryColors[1], description: descriptions[4]});
+    this.items.push({title: 'Board Game Night', category: this.categories[3], icon: this.icons[2], categoryColor: this.categoryColors[3], description: "Planning to play Scythe, Cosmic Encounter, and Diplomacy. Players with any level of experience are welcome."})
+    this.items.push({title: 'Very Fun Party', category: this.categories[3], icon: this.icons[2], categoryColor: this.categoryColors[3], description: "This will be the best party ever, I assure you."})
+    this.items.push({title: 'MAT137 Study Session', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: 'Studying MAT137 in preperation for the upcoming midterm. We cannot dissapoint Alfonso.'})
+    this.items.push({title: 'Careers in Finance - Information and Networking', category: this.categoris[2], icon: this.icons[1], categoryColor: this.categoryColors[2], description: 'Learn some very boring things about finance that will make you rich.'})
+    this.items.push({title: 'Introduction to Machine Learning', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: 'Learn the basics of neural networks! No prior knowledge required. Held in BA1160.'})
+    this.items.push({title: 'Winter Touch Football', category: this.categories[1], icon: this.icons[3], categoryColor: this.categoryColors[1], description: 'Touch football, but with snow all over the place. These have the potential to devolve into snowball fights, which are still fun. Approximately 12 players required.'})
+    this.items.push({title: 'CSC240 Midterm Prep', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: 'A CSSU-hosted group preparation session for the CSC240 midterm. Hopefully we can get more than 4/30 on this one.'})
+    this.items.push({title: 'Entrepreneur Meetup', category: this.categoris[2], icon: this.icons[1], categoryColor: this.categoryColors[2], description: 'A networking and knowledge sharing session for entrereneurs of Toronto.'})
+    this.items.push({title: 'Russian Language Exchange', category: this.categories[0], icon: this.icons[0], categoryColor: this.categoryColors[0], description: 'Russian speakers learning English and English speakers learning Russian are invited to meet up and practice their language skills with each other.'})
+    this.items.push({title: 'Community Centre Dodgeball Game', category: this.categories[1], icon: this.icons[3], categoryColor: this.categoryColors[1], description: 'Come play dodgeball at the community centre! It will be fun!'})
+
 
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
