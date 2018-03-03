@@ -23,17 +23,6 @@ export class EventMenu {
     this.latLng = new google.maps.LatLng(43.612562, -79.753870);
   }
 
-  newEvent = {
-    name: undefined,
-    category: undefined,
-    date: undefined,
-    time: undefined,
-    description: undefined,
-    address: undefined,
-    latLng: undefined,
-    icon: undefined
-  }
-
   updateLatLng(results, status)
 
   makeEvent(event, name, date, time, category, description, address) {
@@ -48,12 +37,6 @@ export class EventMenu {
     } else {
       icon = icons[3];
     }
-    this.name = name;
-    this.category = category;
-    this.icon = icon;
-    this.date = date;
-    this.address = address;
-    this.description = description;
 
     this.events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng})
     this.navCtrl.pop()
