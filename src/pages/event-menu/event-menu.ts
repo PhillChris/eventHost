@@ -1,3 +1,5 @@
+declare var google
+
 import { Component } from '@angular/core';
 
 import { NavController, NavParams, Events } from 'ionic-angular';
@@ -11,17 +13,30 @@ import { ItemDetailsPage } from '../item-details/item-details';
   templateUrl: 'event-menu.html'
 })
 export class EventMenu {
+  name: any;
+  latLng: any;
+  date: any;
+  time: any;
+  description: any;
+  address: any;
   constructor(public navCtrl: NavController, public events: Events) {
+    this.latLng = new google.maps.LatLng(43.612562, -79.753870);
   }
 
   newEvent = {
     name: undefined,
     category: undefined,
-    description: undefined
+    date: undefined,
+    time: undefined,
+    description: undefined,
+    address: undefined,
+    latLng: undefined,
+    icon: undefined
   }
 
-  makeEvent(event, name, category, description) {
-    console.log(category);
+  updateLatLng(results, status)
+
+  makeEvent(event, name, date, time, category, description, address) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
     var icon = undefined;
     if (category === 'Education') {
@@ -33,8 +48,14 @@ export class EventMenu {
     } else {
       icon = icons[3];
     }
+    this.name = name;
+    this.category = category;
+    this.icon = icon;
+    this.date = date;
+    this.address = address;
+    this.description = description;
 
-    this.events.publish('newEvent', {title: name, category: category, icon: icon, categoryColor: '#78AB46', description: description})
+    this.events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng})
     this.navCtrl.pop()
   }
 }

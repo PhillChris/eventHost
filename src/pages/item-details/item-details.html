@@ -16,8 +16,18 @@
       </h3>
     </ion-row>
     <ion-row>
-      <h4 text-center *ngIf="selectedItem">
+      <h4 text-center class="description" *ngIf="selectedItem">
         {{selectedItem.description}}
+      </h4>
+    </ion-row>
+    <ion-row>
+      <h4 text-center *ngIf="selectedItem">
+        Start date: {{selectedItem.startdate}}
+      </h4>
+    </ion-row>
+    <ion-row>
+      <h4 text-center *ngIf="selectedItem">
+        Start time: {{selectedItem.starttime}}
       </h4>
     </ion-row>
     </ion-grid>

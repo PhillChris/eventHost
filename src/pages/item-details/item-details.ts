@@ -23,7 +23,7 @@ export class ItemDetailsPage {
   }
 
   initMap() {
-    let latLng = new google.maps.LatLng(43.6532, -79.3832)
+    let latLng = this.selectedItem.latLng;
 
     let mapOptions = {
       center: latLng,
@@ -31,5 +31,13 @@ export class ItemDetailsPage {
     }
 
     this.googleMap = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: this.googleMap,
+      title: 'Hello World!'
+    });
+
+    marker.setMap(this.googleMap);
   }
 }
