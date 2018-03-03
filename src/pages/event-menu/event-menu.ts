@@ -13,9 +13,14 @@ import { ItemDetailsPage } from '../item-details/item-details';
   templateUrl: 'event-menu.html'
 })
 export class EventMenu {
+  name: any;
   latLng: any;
+  date: any;
+  time: any;
+  description: any;
+  address: any;
   constructor(public navCtrl: NavController, public events: Events) {
-    this.latLng = new google.maps.LatLng(50, 0);
+    this.latLng = new google.maps.LatLng(43.612562, -79.753870);
   }
 
   newEvent = {
@@ -24,8 +29,12 @@ export class EventMenu {
     date: undefined,
     time: undefined,
     description: undefined,
-    address: undefined
+    address: undefined,
+    latLng: undefined,
+    icon: undefined
   }
+
+  updateLatLng(results, status)
 
   makeEvent(event, name, date, time, category, description, address) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
@@ -39,17 +48,14 @@ export class EventMenu {
     } else {
       icon = icons[3];
     }
+    this.name = name;
+    this.category = category;
+    this.icon = icon;
+    this.date = date;
+    this.address = address;
+    this.description = description;
 
-    let geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'address': address}, function(results, status) {
-      if (status == 'OK') {
-      } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-
-    var latLng = new google.maps.LatLng(lat_lng[0], lat_lng[1])
-    this.events.publish('newEvent', {title: name, category: category, icon: icon, startdate: date, latLng: latLng, starttime: time, categoryColor: '#78AB46', description: description})
+    this.events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng})
     this.navCtrl.pop()
   }
 }
