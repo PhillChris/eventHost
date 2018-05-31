@@ -58,10 +58,10 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.searchedItems = this.items.slice();
 
     this.events.subscribe('newEvent', eventInfo => {
-    this.items.push(eventInfo)
-    this.reset()
+      this.items.push(eventInfo)
+      this.reset()
 
-    console.log(this.items)
+      console.log(this.items)
     })
   }
 

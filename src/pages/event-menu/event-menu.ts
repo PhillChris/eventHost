@@ -35,8 +35,16 @@ export class EventMenu {
     } else {
       icon = icons[3];
     }
-
-    this.events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng})
-    this.navCtrl.pop()
+    var geocoder = new google.maps.Geocoder();
+    var events = this.events;   
+    geocoder.geocode( {'address' : address}, function(results, status) {
+      if (status == 'OK') {
+        this.latLng = results[0].geometry.location;
+        events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng});
+      } else {
+        alert('Geocoding failed. Reason:' + status);
+      }
+    });
+    this.navCtrl.pop();
   }
 }
