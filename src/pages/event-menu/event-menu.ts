@@ -19,9 +19,7 @@ export class EventMenu {
   time: any;
   description: any;
   address: any;
-  constructor(public navCtrl: NavController, public events: Events) {
-    this.latLng = new google.maps.LatLng(43.612562, -79.753870);
-  }
+  constructor(public navCtrl: NavController, public events: Events) {}
 
   makeEvent(event, name, date, time, category, description, address) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
@@ -36,7 +34,7 @@ export class EventMenu {
       icon = icons[3];
     }
     var geocoder = new google.maps.Geocoder();
-    var events = this.events;   
+    var events = this.events;
     geocoder.geocode( {'address' : address}, function(results, status) {
       if (status == 'OK') {
         this.latLng = results[0].geometry.location;

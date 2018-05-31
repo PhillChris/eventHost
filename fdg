@@ -1,0 +1,197 @@
+[33mcommit 45f8fc1205f94bc1a283f776c581e937b5506d6b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Sat Mar 3 01:42:03 2018 -0500
+
+    make it not broken
+
+[33mcommit 8933062fcbfef5f047fda26166dceb8a984c8b63[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Sat Mar 3 01:38:54 2018 -0500
+
+    add more events
+
+[33mcommit e6be86d458b27a93ba480d617ceedd463d7bf8c3[m
+Merge: 8e90026 c0d5473
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Sat Mar 3 00:52:22 2018 -0500
+
+    Merge branch 'master' of https://github.com/PhillChris/eventHost
+
+[33mcommit c0d5473c988e4bbfdf3dc7563cc81bcc41d8ca88[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Sat Mar 3 00:50:58 2018 -0500
+
+    final draft
+
+[33mcommit c5ea3ebadb67d38660eaec22077901bd578609f4[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Sat Mar 3 00:02:06 2018 -0500
+
+    almost final draft
+
+[33mcommit 8e900268c1c9924e00bf605bd84a4c5a17eb8085[m
+Merge: 4f821c9 c59ecd1
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Fri Mar 2 19:57:13 2018 -0500
+
+    Merge branch 'master' of https://github.com/PhillChris/eventHost
+
+[33mcommit 4f821c900159601938f132873fc90b442feb192a[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Fri Mar 2 17:23:48 2018 -0500
+
+    Revert "make icons a dictionary"
+    
+    This reverts commit e76119a600bf14b08740ee7c03a1015a2b4abd83.
+
+[33mcommit 2a449d5a06e04734bf36a7909dbe9aae826f45d0[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Fri Mar 2 17:23:40 2018 -0500
+
+    Revert "make icons a dictionary but it works this time"
+    
+    This reverts commit 09850c5cd83f1629de513b1bfc3c527cb6244f31.
+
+[33mcommit c59ecd1a6477515a59ea66044977aeebf642f056[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Fri Mar 2 17:22:20 2018 -0500
+
+    added icon functionality for sumbit
+
+[33mcommit 09850c5cd83f1629de513b1bfc3c527cb6244f31[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Fri Mar 2 17:20:10 2018 -0500
+
+    make icons a dictionary but it works this time
+
+[33mcommit e76119a600bf14b08740ee7c03a1015a2b4abd83[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Fri Mar 2 17:13:17 2018 -0500
+
+    make icons a dictionary
+
+[33mcommit 6fa7220c3dd743af12ef32405fe8d6eed2233d43[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Fri Mar 2 16:58:01 2018 -0500
+
+    form and searchbar fixed
+
+[33mcommit 42072ed01d2b7924f5f180e35ded523b6fb94d07[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 28 21:58:25 2018 -0500
+
+    debugged
+
+[33mcommit d94b7fcd38391746a28b0aa22daec3f78d38f080[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Mon Feb 26 21:39:08 2018 -0500
+
+    dreams being for memes (otherwise google maps)
+
+[33mcommit cf1703fa741fa7636f89f1aa56afde6b47bbbe23[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Mon Feb 26 15:43:22 2018 -0500
+
+    added google maps
+
+[33mcommit ae9eb05e4975b90e1ad91e67e5fcf251d44df23f[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Fri Feb 23 18:41:11 2018 -0500
+
+    semi-functioning create event, doesn't display
+
+[33mcommit 18cced552d130eb911c1bbecef8bbecab9ade473[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Fri Feb 23 12:16:15 2018 -0500
+
+    slightly bugged
+
+[33mcommit d773059a72bef9bb4465c3b385b6ec786f07b81f[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Thu Feb 22 20:55:16 2018 -0500
+
+    submission button for create event
+
+[33mcommit 79649854bb0df0b752232553e419ef58f68fe4e8[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Thu Feb 22 17:23:17 2018 -0500
+
+    added category checkmarks to createEvent (still not functional)
+
+[33mcommit f284f32aee1e76fd26712a09da642f4e20b9c15f[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Thu Feb 22 16:55:23 2018 -0500
+
+    added createEvent page (not functional)
+
+[33mcommit 51e91d1852e543fa71fada694d02123f673c0332[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Thu Feb 22 13:45:22 2018 -0500
+
+    add searchbar
+
+[33mcommit a3a27a9d3c5cf9b782727ebbc738238b18575027[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 17:05:47 2018 -0500
+
+    got rid of that stupid toggle menu
+
+[33mcommit 5df9c4e1203fb433cc1075e56d9a2350b1326c4e[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 16:47:00 2018 -0500
+
+    bug fix
+
+[33mcommit a491f45b4cf8397eca4170ab3f54551fbec61e32[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 16:45:31 2018 -0500
+
+    added button functionality
+
+[33mcommit a3bde67170382c34ba90761fbee299ce8654ba8f[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 15:36:01 2018 -0500
+
+    added descriptions array
+
+[33mcommit 14cf64106cb63f38db06937b1d1856a36b508b90[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 14:39:16 2018 -0500
+
+    updated items class
+
+[33mcommit d27aa2ca103951d8fcd3f07374020e0b193629b4[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Wed Feb 21 14:21:07 2018 -0500
+
+    added buttons and new icons
+
+[33mcommit 0a4124284b6214a94d606e7e66f97e8a24442a69[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Mon Feb 19 23:00:17 2018 -0500
+
+    fix another silly variable bug
+
+[33mcommit e0cd8494b029ee6484ce31a438427cff055aec61[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Mon Feb 19 22:42:35 2018 -0500
+
+    Fixed silly variable type bug
+
+[33mcommit d15327ea0012f894a794e58db81eaf54be49fa72[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Mon Feb 12 17:30:50 2018 -0500
+
+    moved list to main page and customized text
+
+[33mcommit acc478f41267de76e42224855bb7f6368995918c[m
+Author: Ben Prystawski <11021815+benpry@users.noreply.github.com>
+Date:   Mon Feb 12 15:25:42 2018 -0500
+
+    add actual website
+
+[33mcommit a624d3fbb4a92ce41fdcb5b6df0673e3d9729002[m
+Author: PhillChris <chrph@utschools.ca>
+Date:   Sun Feb 11 22:42:20 2018 -0500
+
+    initial commit

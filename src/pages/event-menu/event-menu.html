@@ -10,7 +10,7 @@
 <ion-content>
   <ion-item>
     <ion-label fixed>Event Name</ion-label>
-    <ion-input type="text" value="" [(ngModel)]='makeEvent.name'></ion-input>
+    <ion-input type="text" value="" [(ngModel)]='makeEvent.title'></ion-input>
   </ion-item>
 
   <ion-item>
@@ -56,5 +56,5 @@
     <ion-input type="text" value="" [(ngModel)]='makeEvent.address'></ion-input>
   </ion-item>
 
-  <button ion-button class='submit' (click)='this.makeEvent($event, makeEvent.name, makeEvent.date, makeEvent.time, makeEvent.category, makeEvent.description, makeEvent.address)'>Submit</button>
+  <button ion-button class='submit' (click)='this.makeEvent($event, makeEvent.title, makeEvent.date, makeEvent.time, makeEvent.category, makeEvent.description, makeEvent.address)'>Submit</button>
 </ion-content>

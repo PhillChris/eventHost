@@ -53,7 +53,6 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.items.push({title: 'Entrepreneur Meetup', category: this.categories[2], icon: this.icons[2], starttime: '10:00', latLng: new google.maps.LatLng(43.651166, -79.381275), startdate: '2018-03-03', categoryColor: this.categoryColors[2], description: 'A networking and knowledge sharing session for entrereneurs of Toronto.'})
     this.items.push({title: 'Study Skills Seminar', category: this.categories[0], icon: this.icons[0], starttime: '16:30', latLng: new google.maps.LatLng(43.665768, -79.397671), startdate: '2018-03-04', categoryColor: this.categoryColors[0], description: 'Learn how to manage your time and develop healthy and effectice work habits!'})
 
-
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
 
