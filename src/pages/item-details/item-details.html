@@ -3,7 +3,7 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title> {{selectedItem.title}} </ion-title>
 
   </ion-navbar>
 </ion-header>
@@ -11,23 +11,23 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <h3 text-center *ngIf="selectedItem">
-        {{selectedItem.title}}
-      </h3>
-    </ion-row>
-    <ion-row>
       <h4 text-center class="description" *ngIf="selectedItem">
         {{selectedItem.description}}
       </h4>
     </ion-row>
     <ion-row>
       <h4 text-center *ngIf="selectedItem">
-        Start date: {{selectedItem.startdate}}
+        Start: {{selectedItem.start.toDate().toString()}}
       </h4>
     </ion-row>
     <ion-row>
       <h4 text-center *ngIf="selectedItem">
-        Start time: {{selectedItem.starttime}}
+        End: {{selectedItem.end.toDate().toString()}}
+      </h4>
+    </ion-row>
+    <ion-row>
+      <h4 text-center *ngIf="selectedItem">
+        Address: {{selectedItem.address}}
       </h4>
     </ion-row>
     </ion-grid>

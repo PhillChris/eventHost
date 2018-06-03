@@ -8,20 +8,20 @@ import { HelloIonicPage } from '../hello-ionic/hello-ionic';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 
+import firebase from 'firebase';
+
  @Component({
   selector: 'page-event-menu',
   templateUrl: 'event-menu.html'
 })
 export class EventMenu {
-  name: any;
+  db: any;
   latLng: any;
-  date: any;
-  time: any;
-  description: any;
-  address: any;
-  constructor(public navCtrl: NavController, public events: Events) {}
+  constructor(public navCtrl: NavController, public events: Events) {
 
-  makeEvent(event, name, date, time, category, description, address) {
+  }
+
+  makeEvent(event, name, date, startTime, endTime, category, description, address) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
     var icon = undefined;
     if (category === 'Education') {
@@ -34,11 +34,13 @@ export class EventMenu {
       icon = icons[3];
     }
     var geocoder = new google.maps.Geocoder();
-    var events = this.events;
+    var db = firebase.firestore()
+    var startDateTime = new Date(date + ' ' + startTime);
+    var endDateTime = new Date(date + ' ' + endTime);
     geocoder.geocode( {'address' : address}, function(results, status) {
       if (status == 'OK') {
-        this.latLng = results[0].geometry.location;
-        events.publish('newEvent', {title: name, category: category, icon: icon, description: description, startdate: date, starttime: time, latLng: this.latLng});
+        var latlng = new firebase.firestore.GeoPoint(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+        db.collection('events').add({title: name, address: address, category: category, description: description, start: startDateTime, end: endDateTime, latlng: latlng});
       } else {
         alert('Geocoding failed. Reason:' + status);
       }

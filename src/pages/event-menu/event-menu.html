@@ -42,8 +42,14 @@
   </ion-item>
 
   <ion-item>
-    <ion-label>Time</ion-label>
-    <ion-datetime displayFormat="HH:mm" [(ngModel)]="makeEvent.time">
+    <ion-label>Start Time</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="makeEvent.startTime">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>End Time</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="makeEvent.endTime">
     </ion-datetime>
   </ion-item>
 
@@ -56,5 +62,5 @@
     <ion-input type="text" value="" [(ngModel)]='makeEvent.address'></ion-input>
   </ion-item>
 
-  <button ion-button class='submit' (click)='this.makeEvent($event, makeEvent.title, makeEvent.date, makeEvent.time, makeEvent.category, makeEvent.description, makeEvent.address)'>Submit</button>
+  <button ion-button class='submit' (click)='this.makeEvent($event, makeEvent.title, makeEvent.date, makeEvent.startTime, makeEvent.endTime, makeEvent.category, makeEvent.description, makeEvent.address)'>Submit</button>
 </ion-content>

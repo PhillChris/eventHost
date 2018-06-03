@@ -19,18 +19,19 @@ export class ItemDetailsPage {
   }
 
   ionViewDidLoad() {
-    this.initMap()
+    this.initMap();
+    console.log(this.selectedItem);
   }
 
   initMap() {
-    let latLng = this.selectedItem.latLng;
+    const latLng = new google.maps.LatLng(this.selectedItem.latlng.latitude, this.selectedItem.latlng.longitude);
 
     let mapOptions = {
       center: latLng,
       zoom: 15
-    }
+    };
 
-    this.googleMap = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
+    this.googleMap = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
     var marker = new google.maps.Marker({
       position: latLng,
