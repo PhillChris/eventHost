@@ -18,10 +18,20 @@ import firebase from 'firebase/app';
 })
 
 export class LoginPage {
-  username: string;
-  password: string;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
 
+  }
+
+  login(event, user, pass) {
+    var a = true;
+
+    firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
+      console.log("Invalid user/pass combination");
+      a = false;
+    })
+
+    if (a == true) {
+      this.navCtrl.pop();
+    }
   }
 }
