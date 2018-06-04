@@ -23,15 +23,17 @@ export class LoginPage {
   }
 
   login(event, user, pass) {
-    var a = true;
 
-    firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
-      console.log("Invalid user/pass combination");
-      a = false;
+    const nav = this.navCtrl;
+
+    firebase.auth().signInWithEmailAndPassword(user, pass)
+    .then(login => {
+      nav.pop();
     })
+    .catch(error => {
+      console.log("Invalid user/pass combination");
+      alert("Ya dun fucked up: " + error);
+    });
 
-    if (a == true) {
-      this.navCtrl.pop();
-    }
   }
 }
