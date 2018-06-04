@@ -9,6 +9,8 @@ import { ItemDetailsPage } from '../item-details/item-details';
 
 import { EventMenu } from '../event-menu/event-menu';
 
+import { LoginPage } from '../login-page/login-page';
+
 import firebase from 'firebase/app';
 
 @Component({
@@ -24,13 +26,11 @@ export class HelloIonicPage {
   categoryColors: string[];
   eventlist: any;
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events ) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
     this.icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline',
     'ios-star-outline'];
 
     // Generates the sample event data displayed on the website
-
-    let descriptions = ['A fun time.', 'Please to explain derivatives', 'Will pay for job', 'S M O A K  P A R A D I G M S', 'Who actually does this?']
     this.categoryColors = ['#78AB46', '#488aff', '#A9A9A9', '#FFD700']
     this.categories = ['Education', 'Leisure', 'Professional', 'Promoted']
     firebase.initializeApp({
@@ -51,7 +51,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         });
       })
       .catch(err => {
-        console.log('Error getting documents, ', err); 
+        console.log('Error getting documents, ', err);
       });
 
 
@@ -80,6 +80,10 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         this.searchedItems.push(this.categoryItems[i]);
       }
     }
+  }
+
+  logout(event) {
+    this.navCtrl.push(LoginPage)
   }
 
   createEvent(event) {
