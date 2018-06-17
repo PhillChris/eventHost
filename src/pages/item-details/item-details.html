@@ -30,6 +30,11 @@
         Address: {{selectedItem.address}}
       </h4>
     </ion-row>
+    <ion-row>
+      <h4 text-center *ngIf="selectedItem">
+        Hosted by {{selectedItem.creator}}
+      </h4>
+    </ion-row>
     </ion-grid>
     <div #googleMap id="googleMap"></div>
 </ion-content>

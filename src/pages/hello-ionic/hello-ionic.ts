@@ -49,8 +49,9 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         snapshot.forEach(doc => {
           console.log('pushing data', doc.data());
           this.items.push(doc.data());
-          this.reset();
         });
+        this.categoryItems = this.items.slice();
+        this.searchedItems = this.items.slice();    
       })
       .catch(err => {
         console.log('Error getting documents, ', err);
@@ -60,10 +61,6 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
 
-    this.events.subscribe('newEvent', eventInfo => {
-      this.items.push(eventInfo);
-      this.reset();
-    });
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
         console.log(firebaseUser.email);
@@ -95,7 +92,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
   }
 
   createEvent(event) {
-    this.navCtrl.push(EventMenu)
+    this.navCtrl.push(EventMenu, {creator: this.userEmail});
   }
 
   itemTapped(event, item) {
@@ -107,15 +104,28 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
   categoryTapped(event, category) {
     this.categoryItems = []
     for (let item of this.items) {
-      if (item.category === category) {
+      if (item.category == category) {
          this.categoryItems.push(item)
        }
     }
     this.searchedItems = this.categoryItems.slice();
   }
 
-
   reset() {
+    this.eventlist.get()
+    .then(snapshot => {
+      this.items = []
+      snapshot.forEach(doc => {
+        console.log('pushing data', doc.data());
+        this.items.push(doc.data());
+      });
+      this.categoryItems = this.items.slice();
+      this.searchedItems = this.items.slice();  
+    })
+    .catch(err => {
+      console.log('Error getting documents, ', err);
+    });
+
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
   }

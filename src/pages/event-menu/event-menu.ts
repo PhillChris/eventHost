@@ -17,7 +17,7 @@ import firebase from 'firebase';
 export class EventMenu {
   db: any;
   latLng: any;
-  constructor(public navCtrl: NavController, public events: Events) {
+  constructor(public navCtrl: NavController, public events: Events, public navParams: NavParams) {
 
   }
 
@@ -37,10 +37,12 @@ export class EventMenu {
     var db = firebase.firestore()
     var startDateTime = new Date(date + ' ' + startTime);
     var endDateTime = new Date(date + ' ' + endTime);
+    var creator = this.navParams.get('creator');
     geocoder.geocode( {'address' : address}, function(results, status) {
       if (status == 'OK') {
         var latlng = new firebase.firestore.GeoPoint(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-        db.collection('events').add({title: name, address: address, category: category, description: description, start: startDateTime, end: endDateTime, latlng: latlng});
+        db.collection('events').add({title: name, address: address, category: category, description: description, start: startDateTime, end: endDateTime, latlng: latlng, creator: 
+        creator});
       } else {
         alert('Geocoding failed. Reason:' + status);
       }
