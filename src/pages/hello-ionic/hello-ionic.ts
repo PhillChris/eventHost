@@ -1,4 +1,3 @@
-
 declare var google
 
 import { Component } from '@angular/core';
@@ -25,6 +24,8 @@ export class HelloIonicPage {
   categories: string[];
   categoryColors: string[];
   eventlist: any;
+  userEmail: string;
+  userStatus: string;
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
     this.icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline',
@@ -38,6 +39,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
       authDomain: 'eventhost-205623.firebaseapp.com',
       projectId: 'eventhost-205623'
     });
+    this.userStatus = 'Not Logged In'
     this.items = []
     const firestore = firebase.firestore();
     firestore.settings({timestampsInSnapshots: true});
@@ -45,9 +47,9 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.eventlist.get()
       .then(snapshot => {
         snapshot.forEach(doc => {
-          console.log('pushing data', doc.data())
+          console.log('pushing data', doc.data());
           this.items.push(doc.data());
-          this.reset()
+          this.reset();
         });
       })
       .catch(err => {
@@ -59,11 +61,17 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.searchedItems = this.items.slice();
 
     this.events.subscribe('newEvent', eventInfo => {
-      this.items.push(eventInfo)
-      this.reset()
-
-      console.log(this.items)
-    })
+      this.items.push(eventInfo);
+      this.reset();
+    });
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if (firebaseUser) {
+        console.log(firebaseUser.email);
+        this.userEmail = firebaseUser.email;
+        this.userStatus = "Logged in as " + this.userEmail;
+      }
+    });
+    this.navCtrl.push(LoginPage);
   }
 
   getItems(searchbar: any) {

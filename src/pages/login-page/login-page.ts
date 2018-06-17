@@ -31,8 +31,7 @@ export class LoginPage {
       nav.pop();
     })
     .catch(error => {
-      console.log("Invalid user/pass combination");
-      alert("Ya dun fucked up: " + error);
+      alert("Error: " + error);
     });
 
   }
