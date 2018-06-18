@@ -21,6 +21,7 @@ export class HelloIonicPage {
   items: any;
   categoryItems: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>;
   searchedItems: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>;
+  myEvents: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>
   categories: string[];
   categoryColors: string[];
   eventlist: any;
@@ -51,7 +52,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
           this.items.push(doc.data());
         });
         this.categoryItems = this.items.slice();
-        this.searchedItems = this.items.slice();    
+        this.searchedItems = this.items.slice();
       })
       .catch(err => {
         console.log('Error getting documents, ', err);
@@ -120,7 +121,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         this.items.push(doc.data());
       });
       this.categoryItems = this.items.slice();
-      this.searchedItems = this.items.slice();  
+      this.searchedItems = this.items.slice();
     })
     .catch(err => {
       console.log('Error getting documents, ', err);

@@ -41,4 +41,8 @@ export class ItemDetailsPage {
 
     marker.setMap(this.googleMap);
   }
+
+  attendEvent($event) {
+    this.navCtrl.pop();
+  }
 }
