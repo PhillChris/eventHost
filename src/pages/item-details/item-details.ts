@@ -20,7 +20,6 @@ export class ItemDetailsPage {
 
   ionViewDidLoad() {
     this.initMap();
-    console.log(this.selectedItem);
   }
 
   initMap() {

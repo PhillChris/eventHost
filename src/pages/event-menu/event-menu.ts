@@ -1,6 +1,6 @@
 declare var google
 
-import { Component } from '@angular/core';
+import { Component, ViewChild, getModuleFactory } from '@angular/core';
 
 import { NavController, NavParams, Events } from 'ionic-angular';
 
@@ -17,11 +17,54 @@ import firebase from 'firebase';
 export class EventMenu {
   db: any;
   latLng: any;
+  @ViewChild('googleMap') mapElement;
+  map;
+  autocomplete;
+  input;
+
   constructor(public navCtrl: NavController, public events: Events, public navParams: NavParams) {
 
   }
 
-  makeEvent(event, name, date, startTime, endTime, category, description, address) {
+  ionViewDidLoad(){
+    this.initMap();
+    this.input = document.getElementById('pac-input');
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.input);
+    this.autocomplete = new google.maps.places.Autocomplete(this.input);
+    this.autocomplete.bindTo('bounds', this.map);
+    var marker = new google.maps.Marker({
+      map: this.map,
+      anchorPoint: new google.maps.Point(0, -29),
+      visible: false
+    });
+    var autocomplete = this.autocomplete
+    var map = this.map
+    this.autocomplete.addListener('place_changed', () => {
+      marker.setVisible(false);
+      var place = this.autocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert('No details available for input');
+        return;
+      }
+      if (place.geometry.viewport) {
+        this.map.fitBounds(place.geometry.viewport);
+      } else {
+        this.map.setCenter(place.geometry.location);
+        this.map.setzoom(17);
+      }
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+    });
+  }
+
+  initMap() {
+    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+      center: { lat: 43.6632, lng: -79.3936 },
+      zoom: 15
+    });
+  }
+
+  makeEvent(event, name, date, startTime, endTime, category, description) {
     var icons = ['ios-school-outline', 'ios-american-football-outline', 'ios-briefcase-outline', 'ios-star-outline'];
     var icon = undefined;
     if (category === 'Education') {
@@ -33,6 +76,7 @@ export class EventMenu {
     } else {
       icon = icons[3];
     }
+    var address = document.getElementById('pac-input').value
     var geocoder = new google.maps.Geocoder();
     var db = firebase.firestore()
     var startDateTime = new Date(date + ' ' + startTime);
@@ -48,5 +92,8 @@ export class EventMenu {
       }
     });
     this.navCtrl.pop();
+
   }
+
+
 }

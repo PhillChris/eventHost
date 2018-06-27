@@ -57,10 +57,9 @@
     Where is this event held?
   </p>
 
-  <ion-item>
-    <ion-label fixed>Event Address</ion-label>
-    <ion-input type="text" value="" [(ngModel)]='makeEvent.address'></ion-input>
-  </ion-item>
+  <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
+  <div #googleMap id="googleMap"></div>
 
   <button ion-button class='submit' (click)='this.makeEvent($event, makeEvent.title, makeEvent.date, makeEvent.startTime, makeEvent.endTime, makeEvent.category, makeEvent.description, makeEvent.address)'>Submit</button>
 </ion-content>
