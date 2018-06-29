@@ -92,8 +92,5 @@ export class EventMenu {
       }
     });
     this.navCtrl.pop();
-
   }
-
-
 }
