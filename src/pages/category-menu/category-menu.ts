@@ -20,6 +20,13 @@ import firebase from 'firebase/app';
 })
 
 export class CategoryMenu {
-  constructor() {
+  rootPage: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.rootPage = navParams.get('rootPage');
+  }
+
+  submit(event, category) {
+    this.rootPage.categoryTapped(event, category);
+    this.navCtrl.pop();
   }
 }

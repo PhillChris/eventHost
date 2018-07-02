@@ -106,11 +106,13 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
   }
 
   categorySelect(event) {
-    this.navCtrl.push(CategoryMenu);
+    this.navCtrl.push(CategoryMenu, {
+      rootPage: this
+    });
   }
 
-  public categoryTapped(event, category) {
-    if (category !== '' || category !== 'All Categories') {
+  categoryTapped(event, category) {
+    if (category != '' && category != 'All Categories') {
       this.categoryItems = []
       for (let item of this.items) {
         if (item.category == category) {
@@ -118,6 +120,9 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
          }
       }
       this.searchedItems = this.categoryItems.slice();
+    } else {
+      this.categoryItems = this.items.slice();
+      this.searchedItems = this.items.slice();
     }
   }
 
