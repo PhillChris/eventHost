@@ -11,6 +11,14 @@
           <button ion-button id='categorySelect' (click)="categorySelect($event)">Select Category</button>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button id='createEvent' (click)="createEvent($event)">Create Event</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button id='logOut' (click)="logout($event)">Logout</button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   <h4 ion-text text-center id='userid' color='dark'>{{userStatus}}</h4>
   </ion-navbar>
