@@ -58,7 +58,6 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         console.log('Error getting documents, ', err);
       });
 
-
     this.categoryItems = this.items.slice();
     this.searchedItems = this.items.slice();
 
@@ -69,14 +68,14 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         this.userStatus = "Logged in as " + this.userEmail;
       }
     });
-    this.navCtrl.push(LoginPage);
+    /*this.navCtrl.push(LoginPage);*/
   }
 
   getItems(searchbar: any) {
     var query = searchbar.target.value.toLowerCase();
 
     if (!query) {
-      this.searchedItems = this.categoryItems
+      this.searchedItems = this.categoryItems;
       return;
     }
 
@@ -103,13 +102,15 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
   }
 
   categoryTapped(event, category) {
-    this.categoryItems = []
-    for (let item of this.items) {
-      if (item.category == category) {
-         this.categoryItems.push(item)
-       }
+    if (category != "" || category != "All Categories") {
+      this.categoryItems = []
+      for (let item of this.items) {
+        if (item.category == category) {
+           this.categoryItems.push(item)
+         }
+      }
+      this.searchedItems = this.categoryItems.slice();
     }
-    this.searchedItems = this.categoryItems.slice();
   }
 
   reset() {

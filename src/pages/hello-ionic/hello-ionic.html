@@ -1,13 +1,31 @@
 <ion-header>
   <ion-navbar>
     <button ion-button id='title' clear (click)="reset($event)">eventHost</button>
-    <button ion-button id='education' (click)="categoryTapped($event, 'Education')">Education</button>
-    <button ion-button id='leisure' (click)="categoryTapped($event, 'Leisure')">Leisure</button>
-    <button ion-button id='professional' (click)="categoryTapped($event, 'Professional')">Professional</button>
-    <button ion-button id='promoted' (click)="categoryTapped($event, 'Promoted')">Promoted</button>
-    <button ion-button id='createEvent' (click)="createEvent($event)">Create Event</button>
-    <button ion-button id='logout' (click)="logout($event)">Log out</button>
-    <h4 ion-text text-center id='userid' color='dark'>{{userStatus}}</h4>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button id='education' (click)="categoryTapped($event, 'Education')">Education</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button id='leisure' (click)="categoryTapped($event, 'Leisure')">Leisure</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button id='professional' (click)="categoryTapped($event, 'Professional')">Professional</button>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button id='promoted' (click)="categoryTapped($event, 'Promoted')">Promoted</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button id='createEvent' (click)="createEvent($event)">Create Event</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button id='logout' (click)="logout($event)">Log out</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <h4 ion-text text-center id='userid' color='dark'>{{userStatus}}</h4>
   </ion-navbar>
 </ion-header>
 
