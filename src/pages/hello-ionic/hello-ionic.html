@@ -8,7 +8,12 @@
       </ion-row>
       <ion-row>
         <ion-col text-center>
-          <button ion-button id='categorySelect' (click)="categorySelect($event)">Select Category</button>
+          <ion-select [(ngModel)]="FilterCategory" (ngModelChange)="updateFilter($event)" interface="popover">
+            <ion-option value='All'>All</ion-option>
+            <ion-option value="Education">Education</ion-option>
+            <ion-option value="Leisure">Leisure</ion-option>
+            <ion-option value="Professional">Professional</ion-option>
+          </ion-select>
         </ion-col>
       </ion-row>
       <ion-row>

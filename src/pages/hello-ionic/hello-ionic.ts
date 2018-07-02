@@ -111,8 +111,8 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     });
   }
 
-  categoryTapped(event, category) {
-    if (category != '' && category != 'All Categories') {
+  updateFilter(category) {
+    if (category !=  'All') {
       this.categoryItems = []
       for (let item of this.items) {
         if (item.category == category) {
