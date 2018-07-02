@@ -4,6 +4,9 @@
     <ion-grid no-padding>
       <ion-row>
         <ion-col text-center>
+          <button ion-button id='categorySelect' (click)="categorySelect($event)">Select Category</button>
+        </ion-col>
+        <ion-col text-center>
           <button ion-button id='education' (click)="categoryTapped($event, 'Education')">Education</button>
         </ion-col>
         <ion-col text-center>

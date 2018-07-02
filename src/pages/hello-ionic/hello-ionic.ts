@@ -10,6 +10,8 @@ import { EventMenu } from '../event-menu/event-menu';
 
 import { LoginPage } from '../login-page/login-page';
 
+import { CategoryMenu } from '../category-menu/category-menu';
+
 import firebase from 'firebase/app';
 
 @Component({
@@ -23,6 +25,7 @@ export class HelloIonicPage {
   searchedItems: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>;
   myEvents: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>
   categories: string[];
+  categorySelected: string;
   categoryColors: string[];
   eventlist: any;
   userEmail: string;
@@ -41,6 +44,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
       projectId: 'eventhost-205623'
     });
     this.userStatus = 'Not Logged In'
+    this.categorySelected = 'All Categories'
     this.items = []
     const firestore = firebase.firestore();
     firestore.settings({timestampsInSnapshots: true});
@@ -101,8 +105,12 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     });
   }
 
-  categoryTapped(event, category) {
-    if (category != "" || category != "All Categories") {
+  categorySelect(event) {
+    this.navCtrl.push(CategoryMenu);
+  }
+
+  public categoryTapped(event, category) {
+    if (category !== '' || category !== 'All Categories') {
       this.categoryItems = []
       for (let item of this.items) {
         if (item.category == category) {

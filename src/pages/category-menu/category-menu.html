@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Category-Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list radio-group [(ngModel)]="category">
+
+    <ion-list-header>
+      Select Category:
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>All Categories</ion-label>
+      <ion-radio value="All Categories">All Categories</ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Educational</ion-label>
+      <ion-radio value="Educational">Educational</ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Leisure</ion-label>
+      <ion-radio value="Leisure">Leisure</ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Professional</ion-label>
+      <ion-radio value="Professional">Professional</ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Promoted</ion-label>
+      <ion-radio value="Promoted">Promoted</ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button id="Submit" (click)="HelloIonicPage.categoryTapped($event, category)">Submit</button>
+</ion-content>

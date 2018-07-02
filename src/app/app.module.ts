@@ -7,6 +7,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { EventMenu } from '../pages/event-menu/event-menu';
 import { LoginPage } from '../pages/login-page/login-page';
+import { CategoryMenu } from '../pages/category-menu/category-menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     EventMenu,
-    LoginPage
+    LoginPage,
+    CategoryMenu
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     EventMenu,
-    LoginPage
+    LoginPage,
+    CategoryMenu
   ],
   providers: [
     StatusBar,
