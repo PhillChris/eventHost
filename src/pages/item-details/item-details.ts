@@ -4,6 +4,8 @@ import { Component, ViewChild } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 
+import { AlertController } from 'ionic-angular';
+
 @Component({
   selector: 'page-item-details',
   templateUrl: 'item-details.html'
@@ -13,7 +15,7 @@ export class ItemDetailsPage {
   @ViewChild('googleMap') mapElement;
   googleMap: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
   }
@@ -41,7 +43,34 @@ export class ItemDetailsPage {
     marker.setMap(this.googleMap);
   }
 
-  attendEvent($event) {
+  attendEvent(event) {
     this.navCtrl.pop();
+  }
+
+  displayDescription(event) {
+    let alert = this.alertCtrl.create({
+      title: 'Description',
+      message: this.selectedItem.description,
+      buttons: ['Got it!']
+    });
+    alert.present();
+  }
+
+  displayDate(event) {
+    let alert = this.alertCtrl.create({
+      title: 'Times',
+      message: this.selectedItem.start + this.selectedItem.end,
+      buttons: ['Got it!']
+    });
+    alert.present();
+  }
+
+  displayAddress(event) {
+    let alert = this.alertCtrl.create({
+      title: 'Address',
+      message: this.selectedItem.address,
+      buttons: ['Got it!']
+    });
+    alert.present();
   }
 }

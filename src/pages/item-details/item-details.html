@@ -15,17 +15,17 @@
       </ion-card-header>
 
       <ion-list>
-        <button ion-item>
+        <button ion-item (click)="displayDescription($event)">
           <ion-icon name="ios-information-circle-outline" item-start></ion-icon>
           Description
         </button>
 
-        <button ion-item>
+        <button ion-item (click)="displayDate($event)">
           <ion-icon name="ios-time-outline" item-start></ion-icon>
           What Time?
         </button>
 
-        <button ion-item>
+        <button ion-item (click)="displayAddress($event)">
           <ion-icon name="ios-locate-outline" item-start></ion-icon>
           Address
         </button>
