@@ -57,9 +57,14 @@ export class ItemDetailsPage {
   }
 
   displayDate(event) {
+    let startMillisecs = this.selectedItem.start.seconds * 1000;
+    let endMillisecs = this.selectedItem.end.seconds * 1000;
+    let startDate = new Date(startMillisecs);
+    let endDate = new Date(endMillisecs);
+
     let alert = this.alertCtrl.create({
       title: 'Times',
-      message: this.selectedItem.start + this.selectedItem.end,
+      message: 'From ' + startDate.toUTCString() + ' to ' + endDate.toUTCString() + '!',
       buttons: ['Got it!']
     });
     alert.present();
