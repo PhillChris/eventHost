@@ -6,23 +6,25 @@
           <button text-center ion-button id='title' clear (click)="reset($event)">eventHost</button>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-select [(ngModel)]="FilterCategory" (ngModelChange)="updateFilter($event)" interface="popover">
-            <ion-option value='All'>All</ion-option>
-            <ion-option value="Education">Education</ion-option>
-            <ion-option value="Leisure">Leisure</ion-option>
-            <ion-option value="Professional">Professional</ion-option>
-            <ion-option value="Promoted">Promoted</ion-option>
-          </ion-select>
+      <ion-row text-ceter>
+        <ion-col text-center>
+          <button ion-button outline id="categorySelect" clear>
+            <ion-select [(ngModel)]="FilterCategory" (ngModelChange)="updateFilter($event)" interface="popover">
+              <ion-option selected value='All'>All</ion-option>
+              <ion-option value="Education">Education</ion-option>
+              <ion-option value="Leisure">Leisure</ion-option>
+              <ion-option value="Professional">Professional</ion-option>
+              <ion-option value="Promoted">Promoted</ion-option>
+            </ion-select>
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col text-center>
-          <button ion-button id='createEvent' (click)="createEvent($event)">Create Event</button>
+          <button ion-button outline id='createEvent' (click)="createEvent($event)">Create Event</button>
         </ion-col>
         <ion-col text-center>
-          <button ion-button id='logOut' (click)="logout($event)">Logout</button>
+          <button ion-button outline id='logOut' (click)="logout($event)">Logout</button>
         </ion-col>
       </ion-row>
     </ion-grid>
