@@ -10,34 +10,33 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <h4 text-center class="description" *ngIf="selectedItem">
-        {{selectedItem.description}}
-      </h4>
-    </ion-row>
-    <ion-row>
-      <h4 text-center *ngIf="selectedItem">
-        Start: {{selectedItem.start.toDate().toString()}}
-      </h4>
-    </ion-row>
-    <ion-row>
-      <h4 text-center *ngIf="selectedItem">
-        End: {{selectedItem.end.toDate().toString()}}
-      </h4>
-    </ion-row>
-    <ion-row>
-      <h4 text-center *ngIf="selectedItem">
-        Address: {{selectedItem.address}}
-      </h4>
-    </ion-row>
-    <ion-row>
-      <h4 text-center *ngIf="selectedItem">
-        Hosted by {{selectedItem.creator}}
-      </h4>
-    </ion-row>
-    <ion-row>
-      <button ion-button (click)="this.attendEvent($event)">Attend!</button>
-    </ion-row>
+      <ion-card-header>
+        Event Details
+      </ion-card-header>
+
+      <ion-list>
+        <button ion-item>
+          <ion-icon name="ios-information-circle-outline" item-start></ion-icon>
+          Description
+        </button>
+
+        <button ion-item>
+          <ion-icon name="time-outline" item-start></ion-icon>
+          What Time?
+        </button>
+
+        <button ion-item>
+          <ion-icon name="locate-outline" item-start></ion-icon>
+          Address
+        </button>
+
+        <ion-item>Hosted by {{selectedItem.creator}}</ion-item>
+
+        <button ion-item (click)="this.attendEvent($event)">
+          <ion-icon name="play" item-start></ion-icon>
+          Attend this event!
+        </button>
+      </ion-list>
     </ion-grid>
     <div #googleMap id="googleMap"></div>
 </ion-content>

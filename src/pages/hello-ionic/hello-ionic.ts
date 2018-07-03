@@ -72,7 +72,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
         this.userStatus = "Logged in as " + this.userEmail;
       }
     });
-    this.navCtrl.push(LoginPage);
+    /*this.navCtrl.push(LoginPage);*/
   }
 
   getItems(searchbar: any) {
