@@ -36,10 +36,15 @@
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let item of searchedItems" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-type" item-right>
-      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="{{item.icon}}" item-left></ion-icon>
+          {{item.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <span class="left">{{item.address}}</span><span class="right">{{item.start.toDate().toString()}} - {{item.end.toDate().toString()}}</span>
+        </ion-card-content>
+      </ion-card>
     </button>
   </ion-list>
   <ion-list>
