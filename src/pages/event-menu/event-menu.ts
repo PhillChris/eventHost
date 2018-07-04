@@ -86,7 +86,7 @@ export class EventMenu {
       if (status == 'OK') {
         var latlng = new firebase.firestore.GeoPoint(results[0].geometry.location.lat(), results[0].geometry.location.lng());
         db.collection('events').add({title: name, address: address, category: category, description: description, start: startDateTime, end: endDateTime, latlng: latlng, creator:
-        creator, icon: icon, attendees: []});
+        creator, icon: icon, id: '', attendees: []}).then(doc => {db.collection('events').doc(doc.id).update({id: doc.id})});
       } else {
         alert('Geocoding failed. Reason:' + status);
       }

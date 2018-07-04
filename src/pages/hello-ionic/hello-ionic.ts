@@ -20,10 +20,10 @@ import firebase from 'firebase/app';
 })
 export class HelloIonicPage {
   icons: string[];
+  id: string;
   items: any;
   categoryItems: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>;
   searchedItems: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>;
-  myEvents: Array<{title: string, category: string, startdate: string, starttime: string, latLng: any, categoryColor: string, icon: string, description: string}>
   categories: string[];
   categorySelected: string;
   categoryColors: string[];
@@ -49,6 +49,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     const firestore = firebase.firestore();
     firestore.settings({timestampsInSnapshots: true});
     this.eventlist = firestore.collection('events');
+    console.log(this.eventlist);
     this.eventlist.get()
       .then(snapshot => {
         snapshot.forEach(doc => {
@@ -101,7 +102,8 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
 
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
-      item: item
+      item: item,
+      userEmail: this.userEmail
     });
   }
 

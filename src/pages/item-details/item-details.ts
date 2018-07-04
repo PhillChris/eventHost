@@ -6,18 +6,22 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular';
 
+import firebase from 'firebase/app';
+
 @Component({
   selector: 'page-item-details',
   templateUrl: 'item-details.html'
 })
 export class ItemDetailsPage {
   selectedItem: any;
+  userEmail: string;
   @ViewChild('googleMap') mapElement;
   googleMap: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+    this.userEmail = navParams.get('userEmail');
   }
 
   ionViewDidLoad() {
@@ -44,6 +48,13 @@ export class ItemDetailsPage {
   }
 
   attendEvent(event) {
+    /* IN PROGRESS
+    const firestore = firebase.firestore();
+    firestore.settings({timestampsInSnapshots: true});
+    firestore.collection('events').doc(selectedItem.id).get().then(doc => {
+        var oldArray = doc.
+    });*/
+
     this.navCtrl.pop();
   }
 
