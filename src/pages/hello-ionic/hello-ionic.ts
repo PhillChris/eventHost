@@ -1,5 +1,7 @@
 declare var google
 
+import { apiKey } from '../../../../apiKeys';
+
 import { Component } from '@angular/core';
 
 import { NavController, NavParams, Events } from 'ionic-angular';
@@ -39,7 +41,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public e
     this.categoryColors = ['#78AB46', '#488aff', '#A9A9A9', '#FFD700']
     this.categories = ['Education', 'Leisure', 'Professional', 'Promoted']
     firebase.initializeApp({
-      apiKey: 'AIzaSyChwrT1PnjHZ3eIuurYm6_gVmmj_zXVGA8',
+      apiKey: apiKey,
       authDomain: 'eventhost-205623.firebaseapp.com',
       projectId: 'eventhost-205623'
     });
