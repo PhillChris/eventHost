@@ -1,6 +1,6 @@
 declare var google
 
-import { apiKey } from '../../../../apiKeys';
+import { apiKey } from '../../../../apiKeys.json';
 
 import { Component } from '@angular/core';
 
